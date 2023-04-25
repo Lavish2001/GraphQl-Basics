@@ -1,7 +1,4 @@
-const { Courses, Users, Enrollments, Grades } = model("");
-const { HashPassword, compare } = helper("UserHelpers");
-const { GraphQLObjectType, GraphQLSchema, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull, graphql } = require('graphql');
-const { graphqlHTTP } = require('express-graphql');
+const { GraphQLSchema } = require('graphql');
 const { RootQueryType, LoginType, SignupType, LogoutType, PasswordType, DeactiveType, TeacherCourses, EnrollCourse } = require('../GraphQl/Queries');
 
 

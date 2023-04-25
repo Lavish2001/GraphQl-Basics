@@ -1,7 +1,5 @@
-const { Courses, Users, Enrollments, Grades, UserSession, Lessons } = model("");
-const { HashPassword, compare } = helper("UserHelpers");
-const { GraphQLObjectType, GraphQLSchema, GraphQLString, GraphQLInt, GraphQLBoolean, GraphQLList, GraphQLNonNull, graphql } = require('graphql');
-const { graphqlHTTP } = require('express-graphql');
+const { Users, Enrollments, Grades, Lessons } = model("");
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull } = require('graphql');
 
 
 
