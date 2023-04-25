@@ -1,4 +1,4 @@
-# Nodejs-graphql-project
+# Nodejs-Graphql-Project-
 
 This is a Online Learning Management Sysytem which is made up on graphQl.
 
@@ -17,7 +17,7 @@ This is a Online Learning Management Sysytem which is made up on graphQl.
 
 ## How to use Nodejs-graphQl-project??🧐
 
-- Clone Nodejs-serverless-boilerplate Repository
+- Clone Nodejs-GraphQl-Project Repository
 ```bash
     git clone https://github.com/Lavish2001/GraphQl-Basics.git
 ```
