@@ -54,7 +54,6 @@ module.exports = class UserController {
       } else {
         const exist = await Users.findOne({ where: { email: value.email } });
         if (exist) {
-
           await compare(req, res, value.password, exist.password);
           const token = await assignToken(exist.id);
           await UserSession.create({

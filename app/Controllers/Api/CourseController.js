@@ -1,7 +1,11 @@
 const { courseSchema, courseUpdateSchema } = validate("CourseValidator");
 const { checkTeacher, checkCourse } = helper("CourseHelpers");
 const { Op } = require('sequelize');
-const { Questions, Lessons, Users, Tests, Options, Courses } = model("");
+const { Questions, Lessons, Enrollments, Grades, Users, Tests, Options, Courses } = model("");
+const { HashPassword, compare } = helper("UserHelpers");
+const { GraphQLObjectType, GraphQLSchema, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull, graphql } = require('graphql');
+const { graphqlHTTP } = require('express-graphql');
+const { CourseType } = require('../../GraphQl/Types');
 
 
 module.exports = class CourseController {
@@ -122,22 +126,37 @@ module.exports = class CourseController {
 
     // ALL COURSES //
 
-    async allCourse(req, res) {
-        try {
-            const whereClause = {};
-            if (req.query.name) {
-                whereClause.course_name = { [Op.like]: `%${req.query.name}%` };
-            }
-            const all = await Courses.findAll({
-                include: [
-                    { model: Users, as: 'Created_By', attributes: { exclude: ['role', 'password', 'updatedAt', 'createdAt'] } }
-                ], where: whereClause, order: ['createdAt'], attributes: { exclude: ['updatedAt', 'createdAt', 'Lessons', 'teacher_id'] }
-            });
-            return res.status(200).json({ 'status': 'success', 'data': all });
-        } catch (err) {
-            return res.status(500).json({ 'status': 'failed', 'message': err.message })
-        }
+    async allCourse() {
+
+        const RootQueryType = new GraphQLObjectType({
+            name: 'Query',
+            description: 'Root Query',
+            fields: () => ({
+                courses: {
+                    type: new GraphQLList(CourseType),
+                    description: 'All Available Courses',
+                    args: {
+                        id: { type: GraphQLInt }
+                    },
+                    resolve: async (parent, args) => {
+                        if (args.id) {
+                            const courses = await Courses.findAll({ where: { id: args.id } });
+                            return courses;
+                        } else {
+                            const courses = await Courses.findAll();
+                            return courses;
+                        }
+                    }
+                }
+            })
+        });
+
+        const schema = new GraphQLSchema({
+            query: RootQueryType
+        });
+
     };
+
 
 
 

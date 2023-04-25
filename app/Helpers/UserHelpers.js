@@ -47,12 +47,7 @@ const assignToken = async (id) => {
 
 const compare = async (notHash, hash) => {
     const checkPassword = await bcrypt.compare(notHash, hash);
-    if (!checkPassword) {
-        throw new Error('incorrect password');
-    } else {
-        return;
-        // code return to loginFunction
-    }
+    return checkPassword;
 };
 
 const options = {

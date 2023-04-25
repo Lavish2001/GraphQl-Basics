@@ -2,29 +2,39 @@ const express = require("express");
 const router = express.Router();
 const ucontroller = controller("Api/UserController");
 const loginAuth = middleware("loginAuth");
+const { graphqlHTTP } = require('express-graphql');
+const { loginSchema, signupSchema, logoutSchema, password, deactivate } = require('../app/GraphQl/Schema');
 
 
 // USER SIGNUP //
 
-router.post('/signup', (req, res) => {
-  return ucontroller.signup(req, res);
-});
+router.post('/signup', graphqlHTTP({
+  schema: signupSchema,
+  graphiql: true,
+  rootValue: true
+})
+);
 
 
 
 // USER LOGIN //
 
-router.post('/login', (req, res) => {
-  return ucontroller.login(req, res);
-});
-
+router.post('/login', graphqlHTTP({
+  schema: loginSchema,
+  graphiql: true,
+  rootValue: true
+})
+);
 
 
 // USER LOGOUT //
 
-router.delete('/logout', loginAuth, (req, res) => {
-  return ucontroller.logout(req, res);
-});
+router.post('/logout', loginAuth, graphqlHTTP({
+  schema: logoutSchema,
+  graphiql: true,
+  rootValue: true
+})
+);
 
 
 
@@ -46,17 +56,23 @@ router.delete('/logout-other-devices', loginAuth, (req, res) => {
 
 // UPDATE USER DETAILS //
 
-router.patch('/changepassword', loginAuth, (req, res) => {
-  return ucontroller.changePassword(req, res);
-});
+router.post('/changepassword', loginAuth, graphqlHTTP({
+  schema: password,
+  graphiql: true,
+  rootValue: true
+})
+);
 
 
 
 // DEACTIVATE ACCOUNT //
 
-router.delete('/deactivate', loginAuth, (req, res) => {
-  return ucontroller.deactivate(req, res);
-});
+router.post('/deactivate', loginAuth, graphqlHTTP({
+  schema: deactivate,
+  graphiql: true,
+  rootValue: true
+})
+);
 
 
 
