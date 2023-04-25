@@ -1,8 +1,8 @@
-const { Courses, Users, Enrollments, Grades, UserSession } = model("");
+const { Courses, Users, UserSession } = model("");
 const { HashPassword, compare, options, assignToken } = helper("UserHelpers");
-const { GraphQLObjectType, GraphQLSchema, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull, graphql } = require('graphql');
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull, graphql } = require('graphql');
 const { graphqlHTTP } = require('express-graphql');
-const { CourseType, UserType, SessionType, MessageType, TeacherCourseType, EnrolledCourseType } = require('../GraphQl/Types');
+const { CourseType, UserType, SessionType, TeacherCourseType, EnrolledCourseType } = require('../GraphQl/Types');
 const { Op } = require('sequelize');
 
 
