@@ -1,20 +1,18 @@
-# Nodejs-serverless-boilerplate😎
-A Powerful,Flexible and Scalable boilerplate for your Serverless backend.It will help you to keep Calm,you don't need to worry about building backend architecure.Just spend your time on writting your bussiness logic.
+# Nodejs-graphql-project
+This is a Online Learning Management Sysytem which is made up on graphQl.
 
 
-It's an Open Source Boilerplate carfted by **Community Developers** for architecture Simplicity,Flexiblity and Scalablity.
+## Why Nodejs-graphQl 🤔
 
-## Why Nodejs-serverless-boilerplate 🤔
-
-- This is simple in terms of architecture.
-- This is flexible and also architecture is open to modify according to your comfort.
-- This is well organised,well optimised and well tested for scalable projects.
+- GraphQL can be used with many different programming languages and platforms, and can be used in both server-side and client-side applications. It's commonly used with Node.js,  but there are also GraphQL implementations available for other languages like Python, Ruby, and Java..
+- With GraphQL, clients can specify exactly what data they need, and the server can respond with only that data, eliminating over-fetching and under-fetching of data. This makes API responses more efficient, reducing the amount of data transferred between client and server, and improving overall performance..
+- Overall, GraphQL provides a more efficient and flexible way to build APIs, allowing developers to focus on building applications rather than worrying about data fetching and management..
 - Git clone -> npm install -> project is ready to use. 
 
-## How to use Nodejs-serverless-boilerplate??🧐
+## How to use Nodejs-graphQl-project??🧐
 - Clone Nodejs-serverless-boilerplate Repository
 ```bash
-    git clone https://github.com/Rohitjoshi9023/Nodejs-serverless-boilerplate.git
+    git clone https://github.com/Lavish2001/GraphQl-Basics.git
 ```
 - Install NPM packages 
 ```bash
