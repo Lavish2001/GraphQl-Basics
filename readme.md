@@ -1,6 +1,6 @@
 # Nodejs-Graphql-Project-
 
-This is a Online Learning Management Sysytem which is made up on graphQl.
+This is a Online Learning Management Sysytem which is made up on GraphQl.
 
 
 ## Why Nodejs-graphQl 🤔
